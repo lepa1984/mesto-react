@@ -2,9 +2,9 @@ import React from "react";
 import api from "../utils/Api";
 import Card from "./Card.js";
 export default function Main(props) {
-    const [userName, setUserName] = React.useState();
-    const [userDescription, setUserDescription] = React.useState();
-    const [userAvatar, setUserAvatar] = React.useState();
+    const [userName, setUserName] = React.useState("");
+    const [userDescription, setUserDescription] = React.useState("");
+    const [userAvatar, setUserAvatar] = React.useState("");
     const [cards, setCards] = React.useState([]);
     React.useEffect(() => {
         api.getUserInfo()
@@ -35,7 +35,7 @@ export default function Main(props) {
                     >
                         <img
                             src={userAvatar}
-                            alt="Жак-Ив Кусто"
+                            alt={userName}
                             className="profile__avatar"
                         />
                     </div>
@@ -59,20 +59,19 @@ export default function Main(props) {
                         onClick={props.onAddPlace}
                     ></button>
                 </section>
-                <section className="cards"></section>
+                <section className="cards">
+                    {cards.map((card) => {
+                        return (
+                            <Card
+                                className="card"
+                                card={card}
+                                key={card._id}
+                                onCardClick={props.onCardClick}
+                            />
+                        );
+                    })}
+                </section>
             </main>
-            <section className="cards">
-                {cards.map((card) => {
-                    return (
-                        <Card
-                            className="card"
-                            card={card}
-                            key={card._id}
-                            onCardClick={props.onCardClick}
-                        />
-                    );
-                })}
-            </section>
         </>
     );
 }

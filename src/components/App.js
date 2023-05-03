@@ -6,26 +6,26 @@ import PopupWithForm from "./PopupWithForm.js";
 import ImagePopup from "./ImagePopup.js";
 
 function App() {
-    const [isEditProfilePopupOpen, profilePopupOpen] = React.useState(false);
-    const [isAddPlacePopupOpen, addPopupOpen] = React.useState(false);
-    const [isEditAvatarPopupOpen, avatarPopupOpen] = React.useState(false);
+    const [isEditProfilePopupOpen, setProfilePopupOpen] = React.useState(false);
+    const [isAddPlacePopupOpen, setAddPopupOpen] = React.useState(false);
+    const [isEditAvatarPopupOpen, setAvatarPopupOpen] = React.useState(false);
     const [selectedCard, setSelectedCard] = React.useState(null);
     function handleEditAvatarClick() {
-        avatarPopupOpen(true);
+        setAvatarPopupOpen(true);
     }
     function handleEditProfileClick() {
-        profilePopupOpen(true);
+        setProfilePopupOpen(true);
     }
     function handleAddPlaceClick() {
-        addPopupOpen(true);
+        setAddPopupOpen(true);
     }
     function handleCardClick(card) {
         setSelectedCard(card);
     }
     function closeAllPopups() {
-        addPopupOpen(false);
-        profilePopupOpen(false);
-        avatarPopupOpen(false);
+        setAddPopupOpen(false);
+        setProfilePopupOpen(false);
+        setAvatarPopupOpen(false);
         setSelectedCard(null);
     }
 
