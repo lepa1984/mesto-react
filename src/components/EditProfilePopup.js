@@ -44,6 +44,7 @@ export default function EditProfilePopup(props) {
                     // maxlength="40"
                     placeholder="Имя"
                     onChange={handleNameChange}
+                    value={name}
                 />
                 <span className="form__input-error name-input-error">
                     Вы пропустили это поле.
@@ -60,6 +61,7 @@ export default function EditProfilePopup(props) {
                     // maxlength="200"
                     placeholder="О себе"
                     onChange={handleDescriptionChange}
+                    value={description}
                 />
                 <span className="form__input-error about-input-error">
                     Вы пропустили это поле.
